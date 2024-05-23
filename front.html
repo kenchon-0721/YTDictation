@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>YTDictation</title>
+        <link rel="stylesheet" href="front.css">
+        <!--[if lt IE 9]-->
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+        <!--[endif]-->
+    </head>
+    <body>
+        <header id="title">動画タイトル</header>
+
+        <table id="dictationTable">
+            <tr>
+                <td class="col0">
+                    <button class="rewind">00:00:00</button>
+                </td>
+                <td class="col1">
+                    <textarea class="textDictation"></textarea>
+                </td>
+                <td class="col2">
+                    Hello.
+                </td>
+            </tr>
+        </table>
+
+        <script>
+            //字幕の量に合わせて変化する行の高さにtextareaの高さを合わせる関数
+            function adjustTextareaHeight() {
+                const table = document.getElementById('dictationTable');
+                const rows = table.getElementsByTagName('tr');
+
+            for (let i = 0; i < rows.length; i++) {
+                const row = rows[i];
+                const cells = row.getElementsByTagName('td');
+                const textarea = cells[1].querySelector('textarea');
+                const rowHeight = row.scrollHeight;
+
+                textarea.style.height = rowHeight + 'px';
+            }
+            }
+    
+            // 初期化
+            window.addEventListener('load', adjustTextareaHeight);
+            window.addEventListener('resize', adjustTextareaHeight);
+        </script>
+    </body>
+</html>
