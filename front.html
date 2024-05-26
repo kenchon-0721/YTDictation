@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+    
     <head>
         <meta charset="utf-8">
         <title>YTDictation</title>
@@ -9,10 +10,34 @@
         <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
         <!--[endif]-->
     </head>
-    <body>
-        <header id="title">動画タイトル</header>
 
+    <body>
+        <header id="title">
+            <!-- 動画タイトルの追加 -->
+        </header>
+
+        <h1 id="YouTubePlayer">
+            <!-- Player(iframeタグ)の追加 -->
+        </h1>
+
+        <!-- ディクテーション表 -->
         <table id="dictationTable">
+            <!-- 行 -->
+            <tr>
+                <!-- 時間ボタン列 -->
+                <td class="col0">
+                    <button class="rewind">00:00:00</button>
+                </td>
+                <!-- テキスト入力列 -->
+                <td class="col1">
+                    <textarea class="textDictation"></textarea>
+                </td>
+                <!-- 字幕表示列 -->
+                <td class="col2">
+                    Hello.
+                </td>
+            </tr>
+            <!-- ここまでで字幕一つ分 -->
             <tr>
                 <td class="col0">
                     <button class="rewind">00:00:00</button>
@@ -21,30 +46,22 @@
                     <textarea class="textDictation"></textarea>
                 </td>
                 <td class="col2">
-                    Hello.
+                    Joint Statement of President Donald J. Trump of the United States of America and Chairman Kim Jong Un of the Democratic People's Republic of Korea
+                </td>
+            </tr>
+            <tr>
+                <td class="col0">
+                    <button class="rewind">00:00:00</button>
+                </td>
+                <td class="col1">
+                    <textarea class="textDictation"></textarea>
+                </td>
+                <td class="col2">
+                    Joint Statement of President Donald J.
                 </td>
             </tr>
         </table>
 
-        <script>
-            //字幕の量に合わせて変化する行の高さにtextareaの高さを合わせる関数
-            function adjustTextareaHeight() {
-                const table = document.getElementById('dictationTable');
-                const rows = table.getElementsByTagName('tr');
-
-            for (let i = 0; i < rows.length; i++) {
-                const row = rows[i];
-                const cells = row.getElementsByTagName('td');
-                const textarea = cells[1].querySelector('textarea');
-                const rowHeight = row.scrollHeight;
-
-                textarea.style.height = rowHeight + 'px';
-            }
-            }
-    
-            // 初期化
-            window.addEventListener('load', adjustTextareaHeight);
-            window.addEventListener('resize', adjustTextareaHeight);
-        </script>
+        <script src="./front.js"></script>
     </body>
 </html>
