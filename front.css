@@ -1,7 +1,17 @@
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: white;
+    z-index: 100;
+}
+
 table {
+    position: absolute;
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
+    top: 500px;
 }
 
 .col0 {
