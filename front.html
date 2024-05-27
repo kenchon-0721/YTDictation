@@ -14,9 +14,9 @@
     <body>
         <header>
             <!-- 動画検索 -->
-            <p>
-                <input id="url" type="text">
-                <input id="search" type="submit">
+            <p id="searchForm">
+                <input id="url" type="text" placeholder="Please enter the URL">
+                <input id="search" type="submit" value="search">
             </p>
             
             <p id="YouTubePlayer">
@@ -27,6 +27,11 @@
 
         <!-- ディクテーション表 -->
         <table id="dictationTable">
+            <tr>
+                <th class="col0">Time</th>
+                <th class="col1">Text</th>
+                <th class="col2">Subtitles</th>
+            </tr>
             <!-- 行 -->
             <tr>
                 <!-- 時間ボタン列 -->
@@ -84,7 +89,29 @@
                     <textarea class="textDictation"></textarea>
                 </td>
                 <td class="col2">
-                    Joint Statement of President Donald J. Trump of the United States of America and Chairman Kim Jong Un of the Democratic People's Republic of Korea
+                    Joint Statement of President Donald J. Trump of the United States of America and Chairman Kim Jong Un of the Democratic People's Republic of Korea Joint Statement of President Donald J. Trump of the United States of America and Chairman Kim Jong Un of the Democratic People's Republic of Korea Joint Statement of President Donald J. Trump of the United States of America and Chairman Kim Jong Un of the Democratic People's Republic of Korea
+                </td>
+            </tr>
+            <tr>
+                <td class="col0">
+                    <button class="rewind">00:00:00</button>
+                </td>
+                <td class="col1">
+                    <textarea class="textDictation"></textarea>
+                </td>
+                <td class="col2">
+                    Joint Statement of President Donald J. Trump of the United States of America and Chairman Kim Jong Un of the Democratic People's Republic of Korea Joint Statement of President Donald J. Trump of the United States of America and Chairman Kim Jong Un of the Democratic People's Republic of Korea Joint Statement of President Donald J. Trump of the United States of America and Chairman Kim Jong Un of the Democratic People's Republic of Korea
+                </td>
+            </tr>
+            <tr>
+                <td class="col0">
+                    <button class="rewind">00:00:00</button>
+                </td>
+                <td class="col1">
+                    <textarea class="textDictation"></textarea>
+                </td>
+                <td class="col2">
+                    Joint Statement of President Donald J. Trump of the United States of America and Chairman Kim Jong Un of the Democratic People's Republic of Korea Joint Statement of President Donald J. Trump of the United States of America and Chairman Kim Jong Un of the Democratic People's Republic of Korea Joint Statement of President Donald J. Trump of the United States of America and Chairman Kim Jong Un of the Democratic People's Republic of Korea
                 </td>
             </tr>
         </table>

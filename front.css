@@ -1,9 +1,28 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #F5F5F5;
+}
+
 header {
     position: fixed;
     width: 100%;
     top: 0;
-    background-color: white;
-    z-index: 100;
+    background-color: #3E3636;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+#searchForm {
+    margin: 10px;
+}
+
+#YouTubePlayer {
+    width: 100%;
+    text-align: center;
+    background-color: black;
+    padding: 10px 0;
+    margin: 0;
 }
 
 table {
@@ -11,7 +30,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
-    top: 500px;
+    top: 400px;
 }
 
 .col0 {
@@ -24,13 +43,17 @@ table {
     height: 100%;
     border: 1px solid black;
     padding: 0;
-    text-align: left;
     vertical-align: top;
 }
 
 .col2 {
     width: calc((100%-50px)/2);
     border: 1px solid black;
+}
+
+th {
+    color:#ffffff;
+    background-color: #DA1725;
 }
 
 .rewind {
@@ -47,4 +70,5 @@ table {
     padding: 8px;
     display: block;
     font-size: 100%;
+    background-color: #F5F5F5;
 }
