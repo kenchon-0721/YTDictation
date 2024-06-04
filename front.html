@@ -16,13 +16,12 @@
             <!-- 動画検索 -->
             <p id="searchForm">
                 <input id="url" type="text" placeholder="Please enter the URL">
-                <input id="search" type="submit" value="search">
+                <input id="search" type="submit" value="search" onclick="loadPage()">
             </p>
             
-            <p id="YouTubePlayer">
-                <!-- Player(iframeタグ)の追加 -->
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/B2D3lGOrdVQ?si=-NhXi915gbbBUehZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </p>
+            <!-- The <iframe> (and video player) will replace this <div> tag. -->
+            <!--DO NOT MODIFY THIS TAG-->
+            <div id="YouTubePlayer"></div>
         </header>
 
         <!-- ディクテーション表 -->
@@ -117,7 +116,7 @@
                 </td>
             </tr>
         </table>
-
-        <script src="./front.js"></script>
+        <script src="./init.js"></script>
+        <!--DO NOT INSERT ANY TAG HERE-->
     </body>
 </html>

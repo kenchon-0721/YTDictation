@@ -36,3 +36,22 @@ function displaySubtitles(st){
 window.addEventListener('load', adjustTextareaHeight);
 //ウィンドウサイズの変更時
 window.addEventListener('resize', adjustTextareaHeight);
+
+
+//字幕の準備が整った際に呼び出される関数
+//caption.getList() により、字幕情報が取得できます。
+function onCaptionReady(){
+    let caption_list = caption.getList();
+    caption_list.forEach(elm => {
+        console.log(`${elm.time}    ${elm.caption}`);
+    });
+}
+
+//読み込み時にエラーが発生した時の処理
+function onSearchError(){
+    if(error.code != 0) {
+        str = `Error from ${error.src}:\n${error.message}\n`
+        if(error.detail !== "") str += error.detail;
+        alert(str);
+    }
+}
