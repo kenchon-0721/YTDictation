@@ -119,6 +119,9 @@ class Caption {
             english_ct = pctr_json.captionTracks.find(elm => elm.vssId === 'a.en');
         
         //自動生成の字幕も見つからない場合、戻り値は undefined
+        if (english_ct === undefined)
+            return undefined;
+
         return english_ct.baseUrl;
     }
 

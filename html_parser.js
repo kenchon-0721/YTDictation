@@ -84,6 +84,7 @@ class CaptionXMLParser {
             let tim_flt = parseFloat(tim_str);
             let tim_format = CaptionXMLParser.#sec2Format(tim_flt);
             let cap = this.TAG_LIST[index].innerHTML;
+            cap = CaptionXMLParser.#unescape(cap);
             return {"time": tim_format, "time_float": tim_flt, "caption": cap};
         }
         catch(e){
@@ -115,6 +116,23 @@ class CaptionXMLParser {
 
         ret += `${min_str}:${sec_str}`;
 
+        return ret;
+    }
+    static #unescape(str){
+        let str_, ret;
+        const patterns = {
+            "&lt;"  : '<',
+            "&gt;"  : '>',
+            "&amp;" : '&',
+            "&quot;": '"',
+            "&#x27;": '\\',
+            "&#x60;": '`'
+        };
+        str_ = str.replace(/&(lt|gt|amp|quot|#x27|#x60);/g, match => {return patterns[match]});
+        ret = str_.replace(/&#[0-9]+;/g, match => {
+            let l = match.length;
+            return String.fromCharCode(parseInt(match.substring(2, l-1)));
+        })
         return ret;
     }
 }
