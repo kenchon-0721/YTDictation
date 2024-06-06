@@ -39,9 +39,9 @@ window.addEventListener('resize', adjustTextareaHeight);
 
 
 //字幕の準備が整った際に呼び出される関数
-//caption.getList() により、字幕情報が取得できます。
+//caption.list により、字幕情報が取得できます。
 function onCaptionReady(){
-    let caption_list = caption.getList();
+    let caption_list = caption.list;
     caption_list.forEach(elm => {
         console.log(`${elm.time}    ${elm.caption}`);
     });
