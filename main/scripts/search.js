@@ -6,8 +6,11 @@ function loadPage() {
             error.src = "search"
             error.code = 1;
             error.message = "入力されたURLのフォーマットが正しくありません。";
+            handleAndClearError();
     }
-    loadVideo().then(()=>{loadCaption().catch(handleAndClearError);}).catch(handleAndClearError);
+    else{
+        loadVideo().then(()=>{loadCaption().catch(handleAndClearError);}).catch(handleAndClearError);
+    }
 }
 
 
@@ -36,12 +39,6 @@ async function loadVideo() {
         });
         if (loop_end) break;
     }
-    await new Promise ((resolve, reject) => {
-        if (error.code != 0){
-            handleAndClearError();
-        }
-        resolve();
-    });
 }
 
 async function loadCaption() {
@@ -67,12 +64,7 @@ async function loadCaption() {
         });
         if (loop_end) break;
     }
-    await new Promise ((resolve, reject) => {
-        if (error.code != 0) {
-            handleAndClearError();
-        }
-        resolve();
-    });
+    localStorage.setItem(LS_TAG, video_id);
 }
 
 //フォーマットが違法である場合は null を返す
@@ -87,6 +79,9 @@ function getIdFromURL(input_element) {
 }
 
 function handleAndClearError(){
+    if (error.code == 0)
+        return;
+    
     onSearchError();
     error.code = 0;
     error.message = "";

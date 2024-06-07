@@ -18,8 +18,13 @@ app.get("/proxy", async (req, res) => {
     }
     else {
         try{
+
             const resp = await fetch(decodeURIComponent(q_params.href));
+            const origin = req.headers["Origin"];
             res.set("content-type", "text/plain");
+            if (origin !== undefined){
+                res.set("Access-Control-Allow-Origin", origin);
+            }
             res.send(await resp.text());
         }
         catch(e){

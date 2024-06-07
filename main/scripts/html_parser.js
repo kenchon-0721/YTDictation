@@ -81,7 +81,7 @@ class CaptionXMLParser {
             let elm = this.TAG_LIST[index];
             if(elm === undefined) return undefined;
             let tim_str = elm.getAttribute("start");
-            let dur = elm.getAttribute("dur");
+            let dur = parseFloat(elm.getAttribute("dur"));
             let tim_flt = parseFloat(tim_str);
             let tim_format = CaptionXMLParser.#sec2Format(tim_flt);
             let cap = this.TAG_LIST[index].innerHTML;
