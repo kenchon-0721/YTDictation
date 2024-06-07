@@ -14,7 +14,7 @@ caption = new Caption({
 function onCaptionReady(event) 
 については、front.js を参照してください。
 */
-function onCaptionReady_() {
+function onCaptionReady_(event) {
     onCaptionReady();
 }
 

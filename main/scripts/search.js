@@ -1,7 +1,9 @@
-function loadPage() {
+function loadPage(firstLoad=false) {
     //検索欄に入力された値を取得
-    let input_url = document.getElementById("url");
-    video_id = getIdFromURL(input_url);
+    if (!firstLoad){
+        let input_url = document.getElementById("url");
+        video_id = getIdFromURL(input_url);
+    }
     if (video_id === null) {
             error.src = "search"
             error.code = 1;
@@ -17,9 +19,9 @@ function loadPage() {
 //検索欄に入力されたURLのYouTube動画をロード
 //正常に読み込めた場合は0, エラーが発生した場合はエラーコードを設定する
 async function loadVideo() {
+    player_state_changed = false;
     player.cueVideoById(video_id);
     let loop_end = false;
-    player_state_changed = false;
     while(true){
         await new Promise((resolve, reject) => {
             setTimeout(()=>{

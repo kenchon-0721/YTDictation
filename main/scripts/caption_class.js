@@ -56,7 +56,6 @@ class Caption {
         if (this.#state === CaptionState.ERROR) 
             return;
 
-        
         let res = await fetchThroughProxy(this.#captionURL);
         let dom_parser = new DOMParser();
         if (res.ok) {

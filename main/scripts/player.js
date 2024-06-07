@@ -20,7 +20,7 @@ player = new YT.Player('YouTubePlayer', {
 });
 
 function onPlayerReady(event){
-    loadCaption();
+    loadPage(firstLoad=true);
 }
 
 function onPlayerStateChange(event){
