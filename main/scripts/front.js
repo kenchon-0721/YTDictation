@@ -32,11 +32,6 @@ function displaySubtitles(st){
 
 }
 
-// 初期化
-window.addEventListener('load', adjustTextareaHeight);
-//ウィンドウサイズの変更時
-window.addEventListener('resize', adjustTextareaHeight);
-
 //前の表の削除
 function deletingTable(){
     const deleteTable = Array.from(document.getElementsByClassName('captionLine'));
@@ -51,12 +46,33 @@ function makingTable(){
     let insertElement;
 
     for (let i = 0; i < caption.list.length; i++){
-        insertElement = '<tr class="captionLine">\n<td class="col0">\n<button class="rewind">'
+        insertElement = '<tr class="captionLine">\n<td class="col0">\n<button class="rewind" value="'+caption.list[i].time+'" onclick="clickRewind(this)">';
         insertElement += caption.list[i].time + '</button>\n</td>\n<td class="col1">\n<textarea class="textDictation"></textarea>\n</td>\n';
         insertElement += '<td class="col2" data-TF="false" ondblclick="displaySubtitles(this)">' + caption.list[i].caption + '\n</td>\n</tr>\n';
 
         tableContents.insertAdjacentHTML('beforeend', insertElement);
     }
+}
+
+//巻き戻しボタン
+function clickRewind(bt){
+    let rewindTime = bt.value;
+    let timeParts = rewindTime.split(':');
+    let reSec = 0;
+    let reMin = 0;
+    let reHour = 0;
+    if(timeParts.length == 2){
+        reMin = parseInt(timeParts[0], 10);
+        reSec = parseInt(timeParts[1], 10);
+    }
+    else {
+        reHour = parseInt(timeParts[0], 10);
+        reMin = parseInt(timeParts[1], 10);
+        reSec = parseInt(timeParts[2], 10);
+    }
+
+    let rewindSec = 60*60*reHour + 60*reMin + reSec;
+    player.seekTo(rewindSec, true);
 }
 
 
@@ -78,3 +94,8 @@ function onSearchError(){
     alert(str);
     
 }
+
+// 初期化
+window.addEventListener('load', adjustTextareaHeight);
+//ウィンドウサイズの変更時
+window.addEventListener('resize', adjustTextareaHeight);
